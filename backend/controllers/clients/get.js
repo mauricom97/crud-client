@@ -32,8 +32,9 @@ async function analyseData(request) {
 
 async function getClient(req, request) {
     try {
+        console.log(request)
         const client = await new req.mongoose.model('clients')
-        const resultClient = await client.find()
+        const resultClient = await client.findOne({_id: request.id})
         return resultClient
     } catch (error) {
         console.log(error)
