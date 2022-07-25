@@ -3,7 +3,7 @@ require('../../db/models/Client')
 
 module.exports = async (req, res) => {
     try {
-        const client = await getClients(req, requestData)
+        const client = await getClients(req)
         return res.send(client)
     } catch (error) {
         console.log(error)
@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     }
 }
 
-async function getClients(req, request) {
+async function getClients(req) {
     try {
         const client = await new req.mongoose.model('clients')
         const resultClient = await client.find()
