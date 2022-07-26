@@ -29,6 +29,15 @@ const Cliente = new Schema({
     city: {
         type: String,
         required: false
+    },
+    state: {
+        type: String
+    },
+    country: {
+        type: String
+    },
+    notes: {
+        type: String
     }
 })
 
