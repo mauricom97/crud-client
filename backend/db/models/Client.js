@@ -22,6 +22,10 @@ const Cliente = new Schema({
         type: String,
         required: false
     },
+    cep: {
+        type: String,
+        required: false
+    },
     address: {
         type: String,
         required: false
@@ -33,7 +37,7 @@ const Cliente = new Schema({
     state: {
         type: String
     },
-    country: {
+    district: {
         type: String
     },
     notes: {

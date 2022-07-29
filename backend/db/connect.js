@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 module.exports = () => {
     mongoose.Promise = global.Promise
-    mongoose.mongoose.connect(`mongodb://${process.env.MONGODB_URI}/ecommerce`, {
+    mongoose.mongoose.connect(process.env.MONGODB_URI, {
         useNewUrlParser: true
     }).then(() => {
         console.log('Connected to MongoDB')
