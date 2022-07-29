@@ -15,8 +15,9 @@ module.exports = async (req, res) => {
 function extractData(_req) {
     try {
         const req = _.cloneDeep(_req)
-        const { name, cpf, birth_date, email, phone, address, city, state, country, notes } = req.body
-        return { name, cpf, birth_date, email, phone, address, city, state, country, notes }
+        console.log(req.body)
+        const { name, cpf, birth_date, email, phone, cep,  address, city, state, district, notes } = req.body
+        return { name, cpf, birth_date, email, phone, cep,  address, city, state, district, notes }
     } catch (error) {
         console.log(error)
         throw Error(error.message)
@@ -39,6 +40,7 @@ async function analyseData(request) {
 
 async function createClient(req, request) {
     const client = _.cloneDeep(request)
+    console.log(client)
     try {
         const clientRegister = await new req.mongoose.model('clients')
         const newClient = await new clientRegister(client).save()

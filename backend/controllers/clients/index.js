@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
 async function getClients(req) {
     try {
         const client = await new req.mongoose.model('clients')
-        const resultClient = await client.find()
+        const resultClient = await client.find().sort({ name: 1 })
         return resultClient
     } catch (error) {
         console.log(error)
